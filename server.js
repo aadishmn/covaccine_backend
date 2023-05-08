@@ -13,7 +13,17 @@ const app = express();
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Headers", "*")
+    res.header(
+        "Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE"
+    )
+    res.header(
+        "Access-Control-Allow-Headers", "Content-Type, x-requested-with"
 
+    )
+    next();
+})
 app.use(express.json());
 app.use(moragan("dev"));
 
