@@ -13,7 +13,7 @@ const app = express();
 const corsOpts = {
   origin: "*",
   methods: ["GET", "POST", "DELETE", "PUT"],
-  allowedHeaders: ["Content-Type"],
+  allowedHeaders: ["Content-Type", "Authorization"],
 };
 app.use(cors(corsOpts));
 app.use(express.urlencoded({ extended: true }));
